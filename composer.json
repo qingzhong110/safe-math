@@ -1,0 +1,32 @@
+{
+    "name": "newone/big-number",
+    "description": "大数计算",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ZHANGXIANGLIANG",
+            "email": "admin@taroball.net"
+        },
+        {
+            "name": "tradzero",
+            "email": "admin@drakframe.com"
+        },
+        {
+            "name": "hitman",
+            "email": "944594252@qq.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "NewOne\\Math\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "test/"
+        }
+    }
+}
