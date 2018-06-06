@@ -1,0 +1,22 @@
+language: php
+
+matrix:
+  - php: 7.1
+    env:
+      - TEST_COVERAGE=true
+
+sudo: false
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist
+
+before_script:
+  - mkdir -p build/logs
+
+script:
+  - ./vendor/bin/parallel-lint src test
+  - ./vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
+  - ./vendor/bin/phpcs src test --standard=psr2 -sp
+
+after_script:
+  - if [[ $TEST_COVERAGE == 'true' ]]; then php vendor/bin/coveralls ; fi
