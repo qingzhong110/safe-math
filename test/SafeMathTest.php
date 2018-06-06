@@ -77,11 +77,19 @@ class SafeMathTest extends TestCase
         $this->assertEquals(SafeMath::cmp("2", "1"), 1);
     }
 
-    public function format()
+    public function testFormat()
     {
         $this->assertEquals(SafeMath::format("1", "2"), "1");
         $this->assertEquals(SafeMath::format("1e1", "1"), "10");
         $this->assertEquals(SafeMath::format("1e+1", "1"), "10");
         $this->assertEquals(SafeMath::format("1e-1", "1"), "0.1");
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testFormatException()
+    {
+        $this->assertEquals(SafeMath::format("1e-1e-1", "1"), "0.1");
     }
 }
