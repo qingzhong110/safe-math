@@ -1,6 +1,6 @@
 <?php
 
-namespace Test;
+namespace Test\Math;
 
 use NewOne\Math\SafeMath;
 use PHPUnit\Framework\TestCase;
